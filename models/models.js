@@ -16,7 +16,9 @@ sequelize.sync().then(function() {
 		if (count === 0) {
 			Quiz.create({
 					pregunta: 'Capital de italia',
-					respuesta: 'Roma'
+					respuesta: 'Roma',
+					aciertos: 0,
+					fallos: 0
 				})
 				.then(function() {
 					console.log('la base de datos esta inizializada')
