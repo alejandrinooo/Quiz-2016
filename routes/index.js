@@ -6,12 +6,17 @@ var quizcontroller=require('../controllers/quiz_controller');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: ' Quiz 2016' });
-
-
+  res.render('index', { title: ' quiz 2016' });
 });
 
-router.get('/quizes/question', quizcontroller.question);
-router.get('/quizes/answer' ,quizcontroller.answer);
+router.param('quizid', quizcontroller.load);
+
+
+router.get('/quizes', quizcontroller.index);
+router.get('/quizes/:quizid(\\d+)', quizcontroller.show);
+router.get('/quizes/:quizid(\\d+)/answer', quizcontroller.answer);
+router.get('/quizes/new', quizcontroller.new);
+router.post('/quizes/create', quizcontroller.create);
 
 module.exports = router;
+
