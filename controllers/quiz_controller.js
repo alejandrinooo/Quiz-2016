@@ -28,8 +28,7 @@ exports.answer = function(req,res){
 	
 		resultado='correcto';
 }
-
-res.render('quizes/answer', {quiz: req.quiz, respuesta: resultado, errors: []});
+res.render('quizes/answer', { quiz: req.quiz, respuesta: resultado});;
 
 };
 
