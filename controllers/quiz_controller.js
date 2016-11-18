@@ -2,8 +2,12 @@ var models=require('../models/models.js');
 
 
 exports.load = function(req , res , next , quizid){
-	models.Quiz.findById(quizid).then(
-		function(quiz){
+
+
+	models.Quiz.findOne({
+		where: {id: Number(quizid)},
+		include:[{model:models.Comment}]
+	}).then(function(quiz){console.log(quiz);
 			if(quiz){
 			req.quiz = quiz;
 			next();
