@@ -7,7 +7,7 @@ exports.load = function(req , res , next , quizid){
 	models.Quiz.findOne({
 		where: {id: Number(quizid)},
 		include:[{model:models.Comment}]
-	}).then(function(quiz){console.log(quiz);
+	}).then(function(quiz){
 			if(quiz){
 			req.quiz = quiz;
 			next();
