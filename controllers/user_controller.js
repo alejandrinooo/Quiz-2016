@@ -1,4 +1,4 @@
-var users = { admin: {id:1, username: "alejandro", password:"12345"},
+var users = { admin: {id:1, username: "admin", password:"12345"},
 
 			 silvia: {id:2, username: "silvia", password:"6789"}
 
