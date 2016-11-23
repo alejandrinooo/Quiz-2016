@@ -44,5 +44,13 @@ exports.loginRequired=function(req,res,next){
 	}
 }
 
+exports.adminRequired=function(req,res,next){
+	if(req.session.user.username==='admin'){
+		next();
+	}else{
+		res.redirect('/login');
+	}
+}
+
 
 

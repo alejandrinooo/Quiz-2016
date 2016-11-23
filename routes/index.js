@@ -22,10 +22,11 @@ router.get('/quizes', quizcontroller.index);
 router.get('/quizes/:quizid(\\d+)', quizcontroller.show);
 router.get('/quizes/:quizid(\\d+)/answer', quizcontroller.answer);
 router.get('/quizes/new',   sessionController.loginRequired, quizcontroller.new);
+
 router.get('/quizes/:quizid(\\d)/edit',  sessionController.loginRequired , quizcontroller.edit);
 router.post('/quizes/create',  sessionController.loginRequired , quizcontroller.create);
 router.put('/quizes/:quizid(\\d+)',  sessionController.loginRequired , quizcontroller.update);
-router.delete('/quizes/:quizid(\\d+)',  sessionController.loginRequired,quizcontroller.destroy);
+router.delete('/quizes/:quizid(\\d+)',  sessionController.adminRequired,quizcontroller.destroy);
 
 router.get('/quizes/:quizid(\\d+)/comments/new', commentController.new);
 router.post('/quizes/:quizid(\\d+)/comments', commentController.create);
