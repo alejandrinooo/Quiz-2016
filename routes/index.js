@@ -12,6 +12,8 @@ router.get('/', function(req, res, next) {
 });
 
 router.param('quizid', quizcontroller.load);
+router.param('commentId',commentController.load);
+
 
 router.get('/login', sessionController.new);
 router.post('/login',sessionController.create);
@@ -30,6 +32,8 @@ router.delete('/quizes/:quizid(\\d+)',  sessionController.adminRequired,quizcont
 
 router.get('/quizes/:quizid(\\d+)/comments/new', commentController.new);
 router.post('/quizes/:quizid(\\d+)/comments', commentController.create);
+router.get('/quizes/:quizid(\\d+)/comments/:commentId(\\d+)/publish',
+	sessionController.loginRequired,commentController.publish);
 
 module.exports = router;
 
